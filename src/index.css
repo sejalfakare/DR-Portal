@@ -1,0 +1,196 @@
+/* === Prescripto Doctor Portal Styles === */
+
+/* --- Root Variables for Theme --- */
+:root {
+  --primary-color: #0d6efd; /* A modern, accessible blue */
+  --sidebar-bg: #003366;    /* Deep navy for the sidebar */
+  --hover-bg: #1d4b7a;     /* Slightly lighter navy for hover effects */
+  --light-bg: #f8f9fa;      /* Clean, light gray for the main area */
+  --card-bg: #ffffff;       /* Pure white for cards */
+  --text-primary: #212529;  /* Dark text for readability */
+  --text-secondary: #6c757d;/* Muted gray for secondary text */
+  --border-color: #dee2e6;  /* Light border for separation */
+}
+
+/* --- Global & Body Styles --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-primary);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* --- Main Layout --- */
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: white;
+  padding: 20px 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 30px 40px;
+  overflow-y: auto;
+}
+
+/* --- Sidebar Elements --- */
+.profile {
+  text-align: center;
+  padding: 10px 20px 30px;
+  border-bottom: 1px solid var(--hover-bg);
+}
+
+.profile img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile h2 {
+  margin: 10px 0 5px;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.profile p {
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 15px 25px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.nav-menu a:hover {
+  background-color: var(--hover-bg);
+  color: #fff;
+}
+
+.nav-menu a.active {
+  background-color: var(--hover-bg);
+  color: #fff;
+  font-weight: 600;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* --- Main Content Elements --- */
+.main-content h1 {
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--sidebar-bg);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  font-size: 1.25em;
+}
+
+.card p {
+  margin: 8px 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+/* Additional styles specific to the settings page form */
+.card.settings-card {
+  padding: 30px;
+  margin-bottom: 25px;
+}
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  color: var(--sidebar-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box; 
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+.btn {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+.btn-save { background-color: var(--primary-color); }
+.btn-save:hover { background-color: #0b5ed7; }
+
+.btn-logout { background-color: #6c757d; }
+.btn-logout:hover { background-color: #5c636a; }
+
+.btn-danger { background-color: #dc3545; margin-left: 15px; }
+.btn-danger:hover { background-color: #bb2d3b; }
+
+.action-buttons { margin-top: 10px; }

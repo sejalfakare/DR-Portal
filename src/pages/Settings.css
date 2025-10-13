@@ -1,0 +1,69 @@
+.card.settings-card {
+  background-color: #FFFFFF;
+  padding: 30px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #EAEAEA;
+  text-align: left;
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  color: #2C3E50; /* Matches sidebar color for consistency */
+  border-bottom: 1px solid #EAEAEA;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 1em;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.btn {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.btn-save { background-color: #3B82F6; }
+.btn-save:hover { background-color: #2563EB; }
+
+.btn-logout { background-color: #6c757d; }
+.btn-logout:hover { background-color: #5c636a; }
+
+.btn-danger { background-color: #dc3545; margin-left: 15px; }
+.btn-danger:hover { background-color: #bb2d3b; }
+
+.action-buttons {
+  margin-top: 10px;
+}
