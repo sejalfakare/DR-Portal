@@ -1,37 +1,36 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// Import the master Layout for your dashboard
+// Import your layout component
 import Layout from './components/Layout.jsx';
 
-// --- CORRECTED IMPORT PATHS ---
-
-// These pages are directly inside the 'pages' folder
+// Import all your page components
 import Dashboard from './pages/Dashboard.jsx';
 import Appointments from './pages/Appointments.jsx';
 import Prescriptions from './pages/Prescriptions.jsx';
 import History from './pages/History.jsx';
 import Settings from './pages/Settings.jsx';
-
-// This page is inside its own 'DoctorSignup' folder, so the path is different
-import DoctorSignup from './pages/DoctorSignup/DoctorSignup.jsx';
+import DoctorSignup from './pages/DoctorSignup.jsx';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Route for the signup page (it has no sidebar) */}
-        <Route path="/signup/doctor" element={<DoctorSignup />} />
+        {/* == Standalone Full-Screen Route == */}
+        {/* This route does NOT have the sidebar */}
+        <Route path="/DoctorSignup" element={<DoctorSignup />} />
         
-        {/* All dashboard pages are now children of the Layout component */}
+        {/* == Routes with the Sidebar Layout == */}
+        {/* This parent route renders the Layout. */}
+        {/* All child routes will be displayed inside it. */}
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/appointments" element={<Appointments />} />
-          <Route path="/prescriptions" element={<Prescriptions />} />
           <Route path="/history" element={<History />} />
+          <Route path="/prescriptions" element={<Prescriptions />} />
           <Route path="/settings" element={<Settings />} />
         </Route>
 
-        {/* This makes the dashboard your default homepage */}
+        {/* This redirects the user from the base URL "/" to the dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
       </Routes>
     </Router>

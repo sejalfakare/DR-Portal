@@ -1,30 +1,39 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
-import './Layout.css';
+import { Outlet, NavLink } from 'react-router-dom';
+import './Layout.css'; // Import the styles for the layout
 
-function Layout() {
+// Import the doctor's image.
+// Ensure you have an image file at 'src/assets/doctor-avatar.png'
+import doctorAvatar from '../assets/doctor-avatar.png';
+
+const Layout = () => {
   return (
     <div className="layout-container">
-      <aside className="sidebar">
-        <div className="profile">
-          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Doctor Avatar" />
-          <h2>Dr. Jane Smith</h2>
+      <div className="sidebar">
+        {/* Doctor Profile Section */}
+        <div className="sidebar-profile">
+          <img src={doctorAvatar} alt="Dr. Jane Smith" />
+          <h3>Dr. Jane Smith</h3>
           <p>Cardiologist</p>
         </div>
-        <nav className="nav-menu">
+
+        {/* Navigation Links */}
+        <nav className="sidebar-nav">
           <NavLink to="/dashboard">Dashboard</NavLink>
           <NavLink to="/appointments">Appointments</NavLink>
           <NavLink to="/prescriptions">Prescriptions</NavLink>
           <NavLink to="/history">History</NavLink>
           <NavLink to="/settings">Settings</NavLink>
         </nav>
-      </aside>
+      </div>
+
+      {/* Main Content Area */}
       <main className="main-content">
-        {/* Your page components will be rendered here */}
+        {/* Your page components (Dashboard, Appointments, etc.) will render here */}
         <Outlet />
       </main>
     </div>
   );
-}
+};
 
 export default Layout;
