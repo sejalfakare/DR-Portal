@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { jwtDecode } from 'jwt-decode'; // 1. Import the decoder
-import './Layout.css'; // 2. Import your CSS
-import doctorAvatar from "../assets/doctor-avatar.png"; // 3. Import your avatar
+import { jwtDecode } from 'jwt-decode'; 
+import './Layout.css'; // Your CSS file
 
 function Layout() {
   const [user, setUser] = useState({ name: 'Loading...', role: null });
   const navigate = useNavigate();
 
-  // 4. This is the SINGLE correct logout function
   const handleLogout = () => {
     localStorage.removeItem('token');
-    // Redirect to the main homepage/login page
-    window.location.href = 'http://localhost:5173/login'; // Redirect to Patient portal login
+    window.location.href = 'http://localhost:5173/login'; 
   };
 
-  // 5. This is the SINGLE correct useEffect hook
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
         const decoded = jwtDecode(token);
-        // This looks inside the 'user' object from your token
         setUser({
           name: decoded.user.name, 
           role: decoded.user.role   
         });
       } catch (error) {
         console.error("Invalid token:", error);
-        handleLogout(); // Handle bad token
+        handleLogout(); 
       }
     } else {
-      handleLogout(); // No token found, log out
+      handleLogout(); 
     }
-  }, []); // Empty array, runs once on load
+  }, []); 
 
 
   return (
@@ -42,19 +37,30 @@ function Layout() {
       {/* --- SIDEBAR --- */}
       <aside className="sidebar">
         <div className="sidebar-header">
-          <img 
-            src={doctorAvatar} // 6. Using your real avatar
-            alt="Avatar" 
-            className="doctor-avatar" 
-          />
+
+          {/* === AVATAR FIX === */}
+          {/* We now check the role and show the correct image */}
+          {user.role === 'doctor' && (
+            <img 
+              src="/doctor-avatar.png" // From 'public' folder
+              alt="Doctor Avatar" 
+              className="doctor-avatar" 
+            />
+          )}
+          {user.role === 'admin' && (
+            <img 
+              src="/admin-avatar.png" // From 'public' folder
+              alt="Admin Avatar" 
+              className="doctor-avatar" 
+            />
+          )}
+          {/* === END OF FIX === */}
           
-          <h3>{user.name}</h3> {/* 7. Personalized name! */}
+          <h3>{user.name}</h3> 
           <p>{user.role === 'admin' ? 'Admin Portal' : 'Doctor Portal'}</p>
         </div>
         
         <nav className="sidebar-nav">
-
-          {/* === 8. THE LOGIC FIX === */}
           
           {/* Show this menu ONLY if role is 'doctor' */}
           {user.role === 'doctor' && (
@@ -87,7 +93,6 @@ function Layout() {
           {user.role === 'doctor' && (
             <Link to="/settings">Settings</Link>
           )}
-          {/* Admins will not see any settings link */}
           
           <button onClick={handleLogout} className="btn-logout">Logout</button>
         </div>
@@ -95,10 +100,9 @@ function Layout() {
       
       {/* --- MAIN CONTENT AREA --- */}
       <div className="main-content-wrapper">
-        {/* 9. This passes the 'user' object to all child pages */}
         <Outlet context={{ user: user }} />
       </div>
-    </div> // <-- 10. This was the missing closing div
+    </div>
   );
 }
 

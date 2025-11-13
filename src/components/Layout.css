@@ -6,7 +6,8 @@
 
 /* --- Sidebar (The Left Column) --- */
 .sidebar {
-  width: 260px;
+  width: 280px; /* <-- FIX: Made wider (was 260px) */
+  min-width: 280px; /* Prevents it from squeezing */
   background: #1e293b; /* Dark blue/gray */
   color: #f1f5f9;      /* Light text */
   display: flex;
@@ -20,8 +21,8 @@
 }
 
 .doctor-avatar {
-  width: 80px;
-  height: 80px;
+  width: 90px; /* <-- Made slightly larger */
+  height: 90px;
   border-radius: 50%;
   border: 3px solid #3b82f6; /* Blue border */
   margin-bottom: 1rem;
@@ -30,11 +31,12 @@
 .sidebar-header h3 {
   margin: 0.5rem 0 0.25rem;
   color: #fff;
+  font-size: 1.25rem; /* <-- Made text larger */
 }
 
 .sidebar-header p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem; /* <-- Made text larger */
   color: #94a3b8; /* Lighter gray */
 }
 
@@ -44,11 +46,11 @@
 }
 
 .sidebar-nav h4 {
-  font-size: 0.75rem;
+  font-size: 0.85rem; /* <-- Made text larger */
   text-transform: uppercase;
   color: #64748b; /* Gray heading */
   margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem; /* Added more space */
   letter-spacing: 0.5px;
 }
 
@@ -60,11 +62,12 @@
 
 .sidebar-nav li a {
   display: block;
-  padding: 0.75rem 0;
+  padding: 0.85rem 0.5rem; /* <-- Made links taller */
   color: #cbd5e1; /* Default link color */
   text-decoration: none;
   border-radius: 6px;
   transition: all 0.2s ease;
+  font-size: 1rem; /* <-- Made text larger */
 }
 
 .sidebar-nav li a:hover {
@@ -79,29 +82,12 @@
   padding-top: 1rem;
 }
 
-.sidebar-footer a,
-.sidebar-footer button {
-  /* Style as needed */
-  color: #94a3b8;
-  text-decoration: none;
-}
-
-/* --- Main Content (The Right Column) --- */
-.main-content-wrapper {
-  flex: 1; /* This makes it take up the rest of the space */
-  background: #f1f5f9; /* Light gray background */
-  padding: 2rem;
-  overflow-y: auto; /* Adds scrolling if content is too long */
-}
-/* Add this to your Layout.css */
-
-.sidebar-footer a,
-.sidebar-footer button {
+.sidebar-footer a {
   display: block;
   padding: 0.5rem 0;
   color: #94a3b8; /* Lighter gray */
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem; /* <-- Made text larger */
   transition: color 0.2s ease;
 }
 
@@ -109,14 +95,47 @@
   color: #fff;
 }
 
-/* Style for the logout button */
+/* --- FIX: Style for the logout button --- */
 .btn-logout {
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
   width: 100%;
+  font-family: inherit; /* Make it match other text */
+  font-size: 1rem; /* <-- Made text larger */
+  color: #f7f8f9; /* <-- FIX: Was unstyled (grey) */
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
 }
+
 .btn-logout:hover {
   color: #f87171; /* Red on hover */
+}
+.main-content-wrapper {
+  flex-grow: 1; /* This is the fix. It tells this part to grow and fill all empty space. */
+  background-color: #f8f9fa; /* A very light grey background */
+  padding: 2rem; /* Add some spacing inside */
+  overflow-y: auto; /* Adds scrolling if the content is too long */
+}
+/* In DR-Portal/src/components/Login.css */
+
+/* This styles the "Not registered?" text */
+.login-box .signup-text {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* This styles the "Sign Up here" link */
+.login-box .signup-text a {
+  color: #1e3a8a; /* Your app's main blue color */
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.login-box .signup-text a:hover {
+  text-decoration: underline;
 }
