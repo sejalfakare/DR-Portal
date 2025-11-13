@@ -1,0 +1,80 @@
+.admin-verification-main {
+  padding: 2rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.verification-table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.verification-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.verification-table th,
+.verification-table td {
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.verification-table th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.verification-table tbody tr:hover {
+  background-color: #fdfdfe;
+}
+
+.verification-table td {
+  color: #2d3748;
+}
+
+.document-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #4299e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+.document-links a:hover {
+  text-decoration: underline;
+}
+
+.btn-approve {
+  background-color: #48bb78; /* Green */
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-approve:hover {
+  background-color: #38a169; /* Darker Green */
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.error-message {
+  color: #e53e3e; /* Red */
+  font-weight: 600;
+}

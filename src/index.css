@@ -473,3 +473,36 @@ body,
   background-color: #e9ecef; /* A light grey background to create the frame */
   box-sizing: border-box; /* Ensures padding is included in the element's total width/height */
 }
+/* Add this to your DR-Portal's index.css */
+
+.signup-background {
+  /* This is the gray/blue full-screen background */
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px; /* Adds space so the box isn't stuck to the edge */
+  background-color: #f0f4f8; /* Or whatever your background color is */
+}
+
+.signup-container {
+  /* This is the white box */
+  max-width: 900px; /* This is the fix! */
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2rem 3rem; /* Adds space inside the white box */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds a nice shadow */
+}
+
+/* Optional: Make your form grid look better */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Creates two columns */
+  gap: 20px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1; /* Makes an item span both columns */
+}

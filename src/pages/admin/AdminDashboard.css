@@ -1,0 +1,139 @@
+/* --- AdminDashboard.css --- */
+
+/* Overall Page Layout */
+.admin-dashboard-main {
+  padding: 2rem;
+  background-color: #f8fafc; /* Very light background */
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  color: #1a202c; /* Dark text */
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header .subtitle {
+  font-size: 1.1rem;
+  color: #64748b; /* Muted text */
+}
+
+/* Stats Grid */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem; /* Slightly larger gap */
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #1a202c;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth transition */
+  border: 1px solid transparent; /* subtle border for hover */
+}
+
+.stat-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+  border-color: #cbd5e1; /* Light border on hover */
+}
+
+/* Card Content */
+.stat-card .card-icon {
+  font-size: 2.5rem;
+  color: #a0aec0; /* Muted icon color */
+  margin-bottom: 1rem;
+}
+
+.stat-card .card-content {
+  flex-grow: 1; /* Pushes action to bottom */
+}
+
+.stat-card .card-value {
+  font-size: 3.2rem; /* Larger number */
+  font-weight: 700;
+  color: #2d3748; /* Darker value color */
+  display: block; /* Ensures it takes full line */
+  margin-bottom: 0.5rem;
+}
+
+.stat-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin: 0;
+}
+
+.stat-card .card-action {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #4299e1; /* Action blue */
+  text-decoration: none;
+}
+.stat-card .card-action:hover {
+  text-decoration: underline;
+}
+
+/* Accent Colors for specific cards */
+.stat-card.accent-pending {
+  border-left: 5px solid #f6ad55; /* Orange accent */
+}
+.stat-card.accent-pending .card-value {
+  color: #f6ad55;
+}
+.stat-card.accent-pending .card-action {
+  color: #dd6b20;
+}
+
+.stat-card.accent-patients {
+  border-left: 5px solid #68d391; /* Green accent */
+}
+.stat-card.accent-patients .card-value {
+  color: #68d391;
+}
+
+.stat-card.accent-prescriptions {
+  border-left: 5px solid #63b3ed; /* Light blue accent */
+}
+.stat-card.accent-prescriptions .card-value {
+  color: #63b3ed;
+}
+
+/* Recent Activity Section */
+.dashboard-recent-activity {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.dashboard-recent-activity h2 {
+  font-size: 1.6rem;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 1rem;
+}
+
+.activity-placeholder {
+  color: #718096;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0;
+}

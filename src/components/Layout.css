@@ -1,153 +1,122 @@
-/* --- Global Layout Container --- */
-.layout-container {
+/* --- Main Layout --- */
+.dashboard-layout {
   display: flex;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
 }
 
-/* --- Sidebar Styles --- */
+/* --- Sidebar (The Left Column) --- */
 .sidebar {
-  width: 280px;
-  flex-shrink: 0;
-  background-color: #2c3e50;
-  color: white;
-  padding: 1.5rem;
+  width: 260px;
+  background: #1e293b; /* Dark blue/gray */
+  color: #f1f5f9;      /* Light text */
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
 }
 
-.sidebar-profile {
+.sidebar-header {
   text-align: center;
   margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar-profile img {
-  width: 90px;
-  height: 90px;
+.doctor-avatar {
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #3498db;
-  margin-bottom: 0.75rem;
+  border: 3px solid #3b82f6; /* Blue border */
+  margin-bottom: 1rem;
 }
 
-.sidebar-profile h3 {
-  margin: 0.5rem 0 0.25rem 0;
-  font-size: 1.25rem;
+.sidebar-header h3 {
+  margin: 0.5rem 0 0.25rem;
+  color: #fff;
 }
 
-.sidebar-profile p {
+.sidebar-header p {
   margin: 0;
   font-size: 0.9rem;
-  color: #bdc3c7;
+  color: #94a3b8; /* Lighter gray */
 }
 
+/* --- Navigation Menus --- */
 .sidebar-nav {
-  margin-top: 1rem;
+  flex-grow: 1; /* This pushes the footer down */
 }
 
-.sidebar-nav a {
+.sidebar-nav h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #64748b; /* Gray heading */
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li a {
   display: block;
-  color: #bdc3c7;
+  padding: 0.75rem 0;
+  color: #cbd5e1; /* Default link color */
   text-decoration: none;
-  padding: 0.9rem 1.2rem;
-  border-radius: 8px;
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-  transition: background-color 0.2s, color 0.2s;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-.sidebar-nav a:hover {
-  background-color: #3e5163;
-  color: white;
+.sidebar-nav li a:hover {
+  background: #334155; /* Darker hover */
+  color: #fff;
 }
 
-.sidebar-nav a.active {
-  background-color: #3498db;
-  color: white;
-  font-weight: 600;
+/* --- Sidebar Footer --- */
+.sidebar-footer {
+  margin-top: 2rem;
+  border-top: 1px solid #334155;
+  padding-top: 1rem;
 }
 
-/* --- Main Content Area Styles --- */
-.main-content {
-  flex-grow: 1;
-  padding: 2.5rem 3rem;
-  overflow-y: auto;
-  background-color: #ffffff; /* White background for content */
+.sidebar-footer a,
+.sidebar-footer button {
+  /* Style as needed */
+  color: #94a3b8;
+  text-decoration: none;
 }
 
-/* --- Generic Styles for Content Pages (like Settings) --- */
-.page-header {
-  font-size: 2.2rem;
-  color: #2c3e50;
-  font-weight: 700;
-  margin-bottom: 2rem;
-}
-
-.settings-section {
-  background-color: #f8f9fa; /* Slightly off-white for cards */
-  border: 1px solid #e9ecef;
-  border-radius: 12px;
+/* --- Main Content (The Right Column) --- */
+.main-content-wrapper {
+  flex: 1; /* This makes it take up the rest of the space */
+  background: #f1f5f9; /* Light gray background */
   padding: 2rem;
-  margin-bottom: 2rem;
+  overflow-y: auto; /* Adds scrolling if content is too long */
 }
+/* Add this to your Layout.css */
 
-.settings-section-title {
-  font-size: 1.4rem;
-  color: #34495e;
-  margin-bottom: 1.5rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-}
-
-.settings-form-group {
-  margin-bottom: 1.5rem;
-}
-
-.settings-form-group label {
+.sidebar-footer a,
+.sidebar-footer button {
   display: block;
-  font-weight: 600;
-  margin-bottom: 0.6rem;
-  color: #495057;
-  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  color: #94a3b8; /* Lighter gray */
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
-.settings-input {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-sizing: border-box; /* Important for width */
-  transition: border-color 0.2s, box-shadow 0.2s;
+.sidebar-footer a:hover {
+  color: #fff;
 }
 
-.settings-input:focus {
-  outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
-.settings-btn {
-  background-color: #3498db;
-  color: white;
-  padding: 0.9rem 1.5rem;
+/* Style for the logout button */
+.btn-logout {
+  background: none;
   border: none;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.2s;
-  margin-top: 1rem;
+  text-align: left;
+  width: 100%;
 }
-
-.settings-btn:hover {
-  background-color: #2980b9;
+.btn-logout:hover {
+  color: #f87171; /* Red on hover */
 }
